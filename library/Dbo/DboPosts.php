@@ -13,7 +13,6 @@ class DboPosts{
 	function __construct(){
 		$this->pdo = new vsc_pdo();
 		$this->str = new vsc_string();
-		$this->media = new DboMedia();
 
 		$this->type = array(
 				'post' => 'Tin tức, Bài viết',

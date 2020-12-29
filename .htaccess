@@ -8,8 +8,8 @@ RewriteRule .+ - [L]
 Header always unset X-Frame-Options
 Header set Access-Control-Allow-Origin "*"
 #Rewrite link in config file
-RewriteRule ^$ /daisan_training/site/main/ [QSA,L]
-RewriteRule .* /daisan_training/site/main/ [PT,L,QSA]
+RewriteRule ^$ /ds_training/site/main/ [QSA,L]
+RewriteRule .* /ds_training/site/main/ [PT,L,QSA]
 # Cache files
 <IfModule mod_expires.c>
 ExpiresActive On

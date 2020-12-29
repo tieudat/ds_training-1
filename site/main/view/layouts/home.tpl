@@ -19,7 +19,6 @@
 <link href="{$arg.stylesheet}css/bootstrap.min.css" rel="stylesheet">
 <link href="{$arg.stylesheet}css/jquery-ui.min.css" rel="stylesheet">
 <link href="{$arg.stylesheet}css/font-awesome.min.css" rel="stylesheet">
-<link href="{$arg.stylesheet}css/owl.carousel.min.css" rel="stylesheet">
 <link href="{$arg.stylesheet}css/pnotify.min.css" rel="stylesheet">
 <link href="{$arg.stylesheet}css/animate.min.css" rel="stylesheet">
 
@@ -33,15 +32,9 @@
 <script src="{$arg.stylesheet}js/popper.min.js" type="text/javascript"></script>
 <script src="{$arg.stylesheet}js/bootstrap.min.js" type="text/javascript"></script>
 <script src="{$arg.stylesheet}js/pnotify.min.js" type="text/javascript"></script>
-<script src="{$arg.stylesheet}js/owl.carousel.min.js"></script>
-<script src="{$arg.stylesheet}js/jquery.lazy.min.js"></script>
 <script src="{$arg.stylesheet}js/jquery-ui.min.js" type="text/javascript"></script>
-<script src="{$arg.stylesheet}js/owl-jquery.js" type="text/javascript"></script>
-<script src="{$arg.stylesheet}js/jquery.countdown.min.js" type="text/javascript"></script>
-<script src="https://accounts.google.com/gsi/client" async defer></script>
 
 <script>var str_arg = '{$js_arg}';</script>
-<script src="{$arg.stylesheet}js/ddscrollspy.js"></script>
 <script src="{$arg.stylesheet}js/custom.js"></script>
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -50,54 +43,14 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-54567873-6"></script>
-{literal}
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-MMRDVW');</script>
-<!-- End Google Tag Manager -->
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'UA-54567873-6');
-</script>
-<script>
-	window.fbAsyncInit = function() {
-		FB.init({
-			xfbml : true,
-			version : 'v9.0'
-		});
-	};
-	(function(d, s, id) {
-		var js, fjs = d.getElementsByTagName(s)[0];
-		if (d.getElementById(id))
-			return;
-		js = d.createElement(s);
-		js.id = id;
-		js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
-		fjs.parentNode.insertBefore(js, fjs);
-	}(document, 'script', 'facebook-jssdk'));
-</script>
-{/literal}
 </head>
 <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MMRDVW" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-<div id="fb-root"></div>
-<div class="overlay"></div>
 	
 	{include file='../includes/header.tpl'}
 
 	{include file=$content}
 
 	{include file='../includes/footer.tpl'}
-	{include file='../includes/hmenu.tpl'}
 	
 </body>
 </html>
