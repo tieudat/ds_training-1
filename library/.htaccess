@@ -1,0 +1,10 @@
+RewriteEngine On
+
+# prevent client access this folder and its child
+Options -Indexes
+
+# prevent client access all php files
+<Files  ~ "\.php$">
+  Order allow,deny
+  Deny from all
+</Files>

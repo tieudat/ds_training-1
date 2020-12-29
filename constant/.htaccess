@@ -1,0 +1,10 @@
+RewriteEngine On
+
+# prevent client access this folder and its child
+Options -Indexes
+
+# prevent client access all ini files
+<Files  ~ "\.ini$">
+  Order allow,deny
+  Deny from all
+</Files>

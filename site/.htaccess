@@ -1,0 +1,10 @@
+RewriteEngine On
+
+# prevent client access this folder and its child
+Options -Indexes
+
+# increase php max file size
+<IfModule mod_php5.c>
+   php_value upload_max_filesize 5M
+   php_value post_max_size 5M
+</IfModule>
