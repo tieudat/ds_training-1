@@ -137,6 +137,20 @@ class vsc_pdo {
         return $stmt->rowCount();
     }
 
+    function delete($table,$where){
+
+        try {
+            
+                $sql = "DELETE FROM $table WHERE $where";
+                $stmt = $this->conn->exec($sql);
+                return TRUE;
+            }
+         catch (PDOException $e) {
+            echo $sql."<br>".$e->getMessage();
+        }
+
+
+    }
     
     function count_item($table, $where=null){
     	if($where!='' && $where!=null) $where = " AND " . $where;
