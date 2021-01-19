@@ -37,7 +37,7 @@
                             <li class="left__menuItem">
                                 <div class="left__title"><img src="site/upload/assets/icon-tag.svg" alt="">Danh Mục<img class="left__iconDown" src="site/upload/assets/arrow-down.svg" alt=""></div>
                                 <div class="left__text">
-                                    <a class="left__link" href="?mod=home&site=add_list_catagory">Thêm Danh Mục</a>
+                                    <a class="left__link" href="?mod=home&site=add_catagory">Thêm Danh Mục</a>
                                     <a class="left__link" href="?mod=home&site=list_catagory">Tất Cả Danh Mục</a>
                                 </div>
                             </li>
@@ -45,7 +45,7 @@
                                 <div class="left__title"><img src="site/upload/assets/icon-book.svg" alt="">Media<img class="left__iconDown" src="site/upload/assets/arrow-down.svg" alt=""></div>
                                 <div class="left__text">
                                     <a class="left__link" href="#">Thêm Ảnh</a>
-                                    <a class="left__link" href="#">Tất Cả Hình Ảnh</a>
+                                    <a class="left__link" href="?mod=home&site=media">Tất Cả Hình Ảnh</a>
                                 </div>
                             </li>
                             <li class="left__menuItem">
@@ -89,11 +89,11 @@
                                                     <div class="right__inputWrapper ">
                                                         <label>Chọn Danh Mục</label>
                                                     </div>       
-                                                    <div class="right__inputWrapper-abc">
+                                                    <div class="right__inputWrapper-abc" >
                                                         {foreach from=$taxonomy_name item=i }
-                                                            <label for="checkbox"><input type="checkbox" value="{$i.id}" name="checkbox" id="checkbox">{$i.name}
-                                                                <input type="hidden" value="{$i.id}" name="taxonomy">
+                                                            <label for="checkbox"><input type="checkbox" value="{$i.id}" name="checkbox" >{$i.name}
                                                             </label>
+
                                                         {/foreach}
                                                     </div>         
                                                 </div>

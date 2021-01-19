@@ -48,6 +48,7 @@ class Home extends Main
             $posts = "posts";
             $title = $_POST['title'];
             $alias = $_POST['alias'];
+            $taxonomy = $_POST['checkbox'];
             $keyword = $_POST['keyword'];
             $description = $_POST['description'];
             $content = $_POST['content'];
@@ -55,6 +56,7 @@ class Home extends Main
                 'title' =>$title,
                 'alias' =>$alias,
                 'keyword' =>$keyword,
+                'taxonomy_id'=>$taxonomy,
                 'description'=>$description,
                 'content' =>$content
             );
@@ -118,12 +120,14 @@ class Home extends Main
             $posts = "posts";
             $title = $_POST['title'];
             $alias = $_POST['alias'];
+            $taxonomy = $_POST['checkbox'];
             $keyword = $_POST['keyword'];
             $description = $_POST['description'];
             $content = $_POST['content'];
             $data = array(
                 'title' =>$title,
                 'alias' =>$alias,
+                'taxonomy_id'=>$taxonomy,
                 'keyword' =>$keyword,
                 'description'=>$description,
                 'content' =>$content
@@ -138,30 +142,43 @@ class Home extends Main
         $this->smarty->assign('result',$result);
         $this->smarty->display(LAYOUT_HOME);
     }
+    function add_catagory(){
 
+        if (isset($_POST['name'])&&isset($_POST['alias'])&&isset($_POST['description'])) {
 
-    function add_list_catagory(){
-
-         if(isset($_POST['title'])&&isset($_POST['alias'])&&isset($_POST['keyword'])&&isset($_POST['description'])&&isset($_POST['content'])){
-            $posts = "posts";
-            $title = $_POST['title'];
+            $table = "taxonomy";
+            $name = $_POST['name'];
             $alias = $_POST['alias'];
-            $keyword = $_POST['keyword'];
-            $description = $_POST['description'];
-            $content = $_POST['content'];
-            $data = array(
-                'title' =>$title,
-                'alias' =>$alias,
-                'keyword' =>$keyword,
-                'description'=>$description,
-                'content' =>$content
-            );
+            $desc = $_POST['description'];
+            // $parent = $_POST['parent'];
+            // $type = $_POST['type'];
+            // $image= $_POST['image'];
+            // $lft = $_POST['lft'];
+            // $rgt = $_POST['rgt'];
+            // $featured = $_POST['featured'];
+            // $lang = $_POST['lang'];
+            // $status = $_POST['status'];
 
-            $insert = $this->pdo->insert($posts,$data);
-            $this->smarty->assign('insert',$insert);
-        }
+            $data = array(
+                'name'=>$name,
+                'alias'=>$alias,
+                'desciption'=>$desc
+                // 'type'=>$type,
+                // 'parent'=>$parent,
+                // 'image'=>$image,
+                // 'lft'=>$lft,
+                // 'rgt'=>$rgt,
+                // 'featured'=>$featured,
+                // 'lang'=>$lang,
+                // 'status'=>$status
+            );
+        $add_catagory = $this->pdo->insert($table,$data);
+        $this->smarty->assign('add_catagory',$add_catagory);    
+        var_dump($data);exit();   
+        }   
         $this->smarty->display(LAYOUT_HOME);
     }
+
     function list_catagory(){
         $taxonomy_name = $this->pdo->fetch_all("SELECT * FROM taxonomy order by id ASC");
 
@@ -178,13 +195,28 @@ class Home extends Main
 
         $this->smarty->display(LAYOUT_HOME);
     }
+    function delete_catagory(){
+        $id = $_GET['id'];
+        // var_dump($id);exit();
+        $table = 'taxonomy';
+        $where = "taxonomy.id=".$id;
 
+        $delete_catagory = $this->pdo->delete($table,$where);
+
+        if ($delete_catagory === TRUE ) {
+            header('Location:?mod=home&site=list_catagory');
+        }else{
+            return 1;
+        }
+        $this->smarty->assign('delete_catagory',$delete_catagory);
+    }
 
     function media(){
 
-        // $image ='media';
+        // $folder = ""
 
-        // $get_image = $this->media->get_image_post($image);
+        // $get_image = $this->image->get_image($image);
+        // $this->smarty->assign('get_image',$get_image);
 
         $get_image = $this->pdo->fetch_all(("SELECT *FROM media order by id ASC LIMIT 20"));
         $this->smarty->assign('get_image',$get_image);

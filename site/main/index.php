@@ -25,7 +25,7 @@ $smarty->cache_lifetime = 120000;
 $lang = isset($_SESSION[SESSION_LANGUAGE_DEFAULT]) ? $_SESSION[SESSION_LANGUAGE_DEFAULT] : DEFAULT_LANGUAGE;
 $login = isset($_SESSION[SESSION_LOGIN_DEFAULT]) ? $_SESSION[SESSION_LOGIN_DEFAULT] : 0;
 
-if(isset($_GET['mod']) && in_array($_GET['mod'], ['shop','sourcing','helpcenter'])){
+if(isset($_GET['mod']) && in_array($_GET['mod'], ['add_catagory','add_news','edit_catagory','edit_news','insert_new','list_catagory','list_news','media','taxonomy','shop','sourcing','helpcenter'])){
     $mod = isset($_GET['mod']) ? $_GET['mod'] : "home";
     $site = isset($_GET['site']) ? $_GET['site'] : "index";
 }else{

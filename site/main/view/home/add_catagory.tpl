@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <link href="{$arg.stylesheet}css/admin.css" rel="stylesheet">
+    <title>Thêm Bài Viết</title>
+    <link href="{$arg.stylesheet}css/add_news.css" rel="stylesheet">
+    <script type="text/javascript" src="library/ckeditor/ckeditor.js"></script>
 </head>
 <body>
     <div class="wrapper">
@@ -36,7 +37,7 @@
                             <li class="left__menuItem">
                                 <div class="left__title"><img src="site/upload/assets/icon-tag.svg" alt="">Danh Mục<img class="left__iconDown" src="site/upload/assets/arrow-down.svg" alt=""></div>
                                 <div class="left__text">
-                                    <a class="left__link" href="?mod=home&site=add_catagory">Thêm Danh Mục</a>
+                                    <a class="left__link" href="?mod=home&site=add_list_catagory">Thêm Danh Mục</a>
                                     <a class="left__link" href="?mod=home&site=list_catagory">Tất Cả Danh Mục</a>
                                 </div>
                             </li>
@@ -44,7 +45,7 @@
                                 <div class="left__title"><img src="site/upload/assets/icon-book.svg" alt="">Media<img class="left__iconDown" src="site/upload/assets/arrow-down.svg" alt=""></div>
                                 <div class="left__text">
                                     <a class="left__link" href="#">Thêm Ảnh</a>
-                                    <a class="left__link" href="?mod=home&site=media">Tất Cả Hình Ảnh</a>
+                                    <a class="left__link" href="#">Tất Cả Hình Ảnh</a>
                                 </div>
                             </li>
                             <li class="left__menuItem">
@@ -63,44 +64,64 @@
                 <div class="right">
                     <div class="right__content">
                         <div class="right__title">Bảng điều khiển</div>
-                        <p class="right__desc">Danh sách danh mục</p>
-                        <div class="right__table">
-                            <div class="right__tableWrapper">
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Name</th>
-                                            <!-- <th>Keyword</th> -->
-                                            <th>Alias</th>
-                                            <th>Sửa</th>
-                                            <th>Xoá</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {foreach from =$taxonomy_name item=$i }
-                                            <tr>
-                                                <td>{$i.id}</td>
-                                                <td>{$i.name}</td>
-                                                <!-- <td>{$i.keyword}</td> -->
-                                                <td>{$i.alias}</td>
-                                                <td><a href="?mod=home&site=edit_catagory&id={$i.id}">Sửa</a></td>
-                                                <td><a href="?mod=home&site=delete_catagory&id={$i.id}">Xóa</a></td>
-                                            </tr>
-                                        {/foreach}
-                                    </tbody>
-                                </table>
+                        <p class="right__desc">Thêm Bài Viết</p>
+                        <form action="" method="post">
+                            <div class="right__formWrapper">
+                                <div class="right__inputWrapper">
+                                    <label>Tên danh mục</label>
+                                    <input type="text" name="name" value="" placeholder="">
+                                </div>
+                                <div class="right__inputWrapper">
+                                    <label>Alias</label>
+                                    <input type="text" name="alias" value="" placeholder="">
+                                </div>
+                                <!-- <div class="right__inputWrapper">
+                                    <label>Parent</label>
+                                    <input type="text" name="parent" value="" placeholder="">
+                                </div>
+                                 <div class="right__inputWrapper">
+                                    <label>Type</label>
+                                    <input type="text" name="type" value="" placeholder="">
+                                </div>
+                                 <div class="right__inputWrapper">
+                                    <label>Image</label>
+                                    <input type="file" name="image" value="" placeholder="">
+                                </div>
+                                 <div class="right__inputWrapper">
+                                    <label>Lft</label>
+                                    <input type="text" name="lft" value="" placeholder="">
+                                </div>
+                                 <div class="right__inputWrapper">
+                                    <label>Rgt</label>
+                                    <input type="text" name="rgt" value="" placeholder="">
+                                </div>
+                                 <div class="right__inputWrapper">
+                                    <label>Featured</label>
+                                    <input type="text" name="featured" value="" placeholder="">
+                                </div>
+                                 <div class="right__inputWrapper">
+                                    <label>lang</label>
+                                    <input type="text" name="lang" value="" placeholder="">
+                                </div>
+                                 <div class="right__inputWrapper">
+                                    <label>Status</label>
+                                    <input type="text" name="status" value="" placeholder="">
+                                </div> -->
+                                <div class="right__inputWrapper">
+                                    <label>Description</label>
+                                    <textarea rows="4" name="description"></textarea>
+                                </div>
+                                <button class="btn" type="submit">Thêm</button>
                             </div>
-                        </div>
+                            
+                        </form>
+                    </div>
                 </div>
-
-
-                </div>
+            </div>
         </div>
     </div>
-</div>
+</body>
 <script type="text/javascript">
-    
     window.addEventListener("load", event => {
 
     // Expand Left Side
@@ -134,5 +155,4 @@
     };
 })
 </script>
-</body>
-</html>
+</html>    
